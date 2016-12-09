@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div>
+            <h1>JavaScriptCore</h1>
+            <!-- 这边button执行的方法名为jsCallNative，需要与Native上设置的一样-->
+            <input type="button" value="jsCallNative" onclick="jsCallNative('param1','param2',['a','b'],{'key1':'value1','key2':'value2'})">
+                <!-- JS中可以直接访问注册的对象的方法和属性-->
+                <input type="button" value="对象注入" onclick="model.fullName()">
+                <input type="button" value="对象注入访问属性" onclick="modelProperty()">
+                </div>
+        
+        <script>
+            //Js有一个NativeCallJs方法
+            function nativeCallJs(param1,param2,param3){
+                alert(param1);
+                alert(param2[1]);
+                alert(param3['key1']);
+            }
+        
+        function modelProperty(){
+        
+            alert(model.name);
+        }
+        </script>
+    </body>
+</html>
